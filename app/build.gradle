@@ -3,6 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def newsApiKeyPropertiesFile = rootProject.file("keys.properties")
+def newsApiKeyProperties = new Properties()
+newsApiKeyProperties.load(new FileInputStream(newsApiKeyPropertiesFile))
+
 android {
     compileSdk 32
 
@@ -17,6 +21,8 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        buildConfigField("String", "NEWS_API_KEY", newsApiKeyProperties['NEWS_API_KEY'])
     }
 
     buildTypes {
@@ -59,4 +65,11 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+}
+
+// Network
+dependencies {
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
 }
