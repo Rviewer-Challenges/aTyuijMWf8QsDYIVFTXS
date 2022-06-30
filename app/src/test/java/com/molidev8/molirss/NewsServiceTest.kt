@@ -2,7 +2,7 @@ package com.molidev8.molirss
 
 import androidx.test.filters.SmallTest
 import com.molidev8.molirss.data.network.NewsApi
-import com.molidev8.molirss.data.network.NewsServiceApi
+import com.molidev8.molirss.data.network.NewsService
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -12,7 +12,7 @@ import org.junit.Test
 @SmallTest
 class NewsServiceTest {
 
-    private lateinit var newsService: NewsServiceApi
+    private lateinit var newsService: NewsService
 
     @Before
     fun setup() {

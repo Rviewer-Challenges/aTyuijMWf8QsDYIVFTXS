@@ -26,7 +26,7 @@ private val retrofit = Retrofit.Builder()
     .client(client)
     .build()
 
-interface NewsServiceApi {
+interface NewsService {
 
     private val apiKey get() = BuildConfig.NEWS_API_KEY
 
@@ -40,7 +40,7 @@ interface NewsServiceApi {
 }
 
 object NewsApi {
-    val retrofitService: NewsServiceApi by lazy {
-        retrofit.create(NewsServiceApi::class.java)
+    val retrofitService: NewsService by lazy {
+        retrofit.create(NewsService::class.java)
     }
 }
