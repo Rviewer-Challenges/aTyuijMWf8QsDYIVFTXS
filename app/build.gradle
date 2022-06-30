@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 def newsApiKeyPropertiesFile = rootProject.file("keys.properties")
@@ -65,6 +66,7 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+    androidTestImplementation "androidx.test:core:1.4.0"
 }
 
 // Network
@@ -72,4 +74,15 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+}
+
+// Room
+dependencies {
+
+    implementation 'androidx.test:runner:1.4.0'
+    def room_version = "2.3.0-rc01"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
 }

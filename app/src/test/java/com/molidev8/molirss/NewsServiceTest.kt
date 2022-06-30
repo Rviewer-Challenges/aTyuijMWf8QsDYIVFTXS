@@ -1,13 +1,15 @@
 package com.molidev8.molirss
 
-import com.molidev8.molirss.data.NewsApi
-import com.molidev8.molirss.data.NewsServiceApi
+import androidx.test.filters.SmallTest
+import com.molidev8.molirss.data.network.NewsApi
+import com.molidev8.molirss.data.network.NewsServiceApi
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.junit.Before
 import org.junit.Test
 
+@SmallTest
 class NewsServiceTest {
 
     private lateinit var newsService: NewsServiceApi

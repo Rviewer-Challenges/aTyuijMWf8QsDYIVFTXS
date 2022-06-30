@@ -1,4 +1,4 @@
-package com.molidev8.molirss.data
+package com.molidev8.molirss.data.network
 
 import com.molidev8.molirss.BuildConfig
 import com.molidev8.molirss.domain.Everything
